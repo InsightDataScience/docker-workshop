@@ -1,4 +1,4 @@
-# First Docker Container!
+# Chapter 1: First Docker Container!
 
 Let us get started with the "Hello World!" of Docker. In this directory, take a closer look at the Dockerfile. This is where we specify what our container will look like.
 
