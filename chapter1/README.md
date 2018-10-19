@@ -7,3 +7,5 @@ Describe Dockerfile in more detail.
 Instructions on how to run the container.
 Instructions on how to investiage what is going on.
 Introduction of docker exec and stuff.
+
+Mention the weird Windows stuff.
