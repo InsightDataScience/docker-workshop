@@ -7,3 +7,8 @@ Docker-compose is a simple tool for container orchestration. You can use it to r
 
 Explain docker-compose commands for building and starting the container.
 Explain how to view what is running and how to stop things.
+
+docker-compose build
+docker-compose up (-d)
+
+explain networking, in partciular connecting to postgres is user@db:5432 because name of postgres is db in yml.

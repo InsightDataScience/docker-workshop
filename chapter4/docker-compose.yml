@@ -1,0 +1,29 @@
+version: '3'
+services:
+  db:
+    image: "postgres:9.6.5"
+    volumes:
+      - "dbdata2:/var/lib/postgresql/data"
+      - ./init-tables.sh:/docker-entrypoint-initdb.d/init-tables.sh
+    env_file:  
+      - env_file
+    networks:
+      - nw
+  jupyter-server:
+    build: ./jupyter
+    volumes:
+      - "notebooks2:/jupyter_notebooks"
+    ports:
+      - 8888:8888
+    env_file:
+      - env_file
+    networks:
+      - nw
+    depends_on:
+      - db
+networks:
+  nw:
+    driver: bridge
+volumes:
+  dbdata2:
+  notebooks2:
