@@ -33,7 +33,7 @@ This is of course where `docker exec` comes in handy again! Using the command
 we are logged in our database. The option `-it` essentially executes the command in an interactive mode where our terminal is bound to the container. We should now be logged into the database!
 Execute the following SQL command to  create a table participants:
 
-    CREATE TABLE participants (name VARCHAR(255), age int, score int);
+    CREATE TABLE participants (name VARCHAR(255), age INT, score INT);
 
 Of course, the table is currently empty, as we can verify with:
 
