@@ -68,4 +68,4 @@ If we reenter the database and display the content of the table participants
  
  we should still see both entries!
 
-This is the end if Chapter 3, we have successfully setup a database using Docker! To finish this workshop strongly, let us combine what we have learned in Chapter 2 and Chapter 3!
+This is the end of Chapter 3, we have successfully setup a database using Docker! To finish this workshop strongly, let us combine what we have learned in Chapter 2 and Chapter 3!

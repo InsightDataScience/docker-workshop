@@ -54,4 +54,4 @@ We now see a running container! If we want to executed a command in a running co
 
 The command executes `ls` in the container `hello-world`. This shows us the file system of our container.
 
-That was a lot of information! An important command we did not touch is `docker logs`, we encourage to try that command yourself before moving into the second chapter.
+That was a lot of information! An important command we did not touch is `docker logs`, we encourage you to try that command yourself before moving into the second chapter.
