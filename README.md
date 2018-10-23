@@ -2,16 +2,16 @@
 
 This repository contains the content and directions to Insight Data Science's Docker workshop.
 The goal of this workshop is to give participants an introduction to the basics behind Docker.
-In this workshop, we will start with basics and end with the deployment of a system consiting of a
+To do so, we will start with basics and end with the deployment of a system consiting of a
 Jupyter notebook server and a PostgreSQL database.
 
 ## What is Docker?
 
-[Docker](www.docker.com) is a popular containerization platform. Containerization is a lightweight alternative to virtualization that has gained widespread popularity due to its flexibility and ease of use. Docker in particular has emerged as the most popular framework for containerization. In combination with orchestration tools such as [Kubernetes](www.kubernetes.io), it is very easy to build dynamic microservice architectures.
+[Docker](https:www.docker.com) is a popular containerization platform. Containerization is a lightweight alternative to virtualization that has gained widespread popularity due to its flexibility and ease of use. Docker in particular has emerged as the most popular framework for containerization. In combination with orchestration tools such as [Kubernetes](https:www.kubernetes.io), it is very easy to build dynamic microservice architectures.
 
 ## Prerequisites
 
-Before starting the workshop, please [install Docker](www.docker.com/get-started). Note that as Docker is based on Linux features such as cgroups, the installation and usage of Docker on Windows can be cumbersome.
+Before starting the workshop, please [install Docker](https:www.docker.com/get-started). Note that as Docker is based on Linux features such as cgroups, the installation and usage of Docker on Windows can be cumbersome.
 
 ## Overview
 
