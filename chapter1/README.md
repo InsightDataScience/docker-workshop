@@ -42,9 +42,9 @@ In order to remove a (stopped) container, we can use the `rm` command:
 
 Let us now use  `docker-run` again but add one option and one parameter:
 
-    docker run -d --name hello-world hello-world /bin/sh
+    docker run -d -it --name hello-world hello-world /bin/sh
 
-The option `-d` activates detached mode, a mode where the container runs in the background. The command after the docker image `/bin/sh` direct `docker run` to execute this command after creating the container. This particular command started a shell process that waits for our input. In particular, it runs until we close it. Hence, when executing
+The option `-d` activates detached mode, a mode where the container runs in the background. The option `-it` runs the container in an interactive mode. The command after the docker image `/bin/sh` direct `docker run` to execute this command after creating the container. This particular command started a shell process that waits for our input. In particular, it runs until we close it. Hence, when executing
 
     docker ps
 
