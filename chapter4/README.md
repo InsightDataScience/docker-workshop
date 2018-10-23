@@ -10,7 +10,7 @@ We first declare that we are using version 3 of `docker-compose`:
 
     version: '3'
 
-We now define `services`. Each service uses an image to build one or more containers. We will only build one container per service, but you can imagine that having multiple containers running a service can help serve millions of users!
+We now define `services`. Each service uses an image to build one or more containers. We will only build one container per service, but you can imagine that having multiple containers running the same service can help serve millions of users!
 The first service we define is a database service:
 ```
 services:
@@ -24,7 +24,7 @@ services:
     networks:
       - nw
 ```
-This service uses the same image that we used in Chapter 3. The declaration of the first volume is also analogous to what we declared in Chapter 3. The second volume mounts the script `init-tables.sh` in the `chapter4` folder to the folder `docker-entrypoint-initdb.d`. This is a feature of the `postgres` image: Any script in that folder will be used to setup the database when first started. We are using this feature to setup a table and insert two entires just like we did by hand in Chapter 3. Feel free to look into `init-tables.sh` to see that the commands are basically the same.
+This service uses the same image that we used in Chapter 3. The declaration of the first volume is also analogous to what we declared in Chapter 3. The second volume mounts the script `init-tables.sh` in the `chapter4` folder to the folder `docker-entrypoint-initdb.d`. This is a feature of the `postgres` image: Any script in that folder will be used to setup the database when first started. We are using this feature to setup a table and insert two entries just like we did by hand in Chapter 3. Feel free to look into `init-tables.sh` to see that the commands are basically the same.
 `docker-compose` allows us to declare a bunch of enviromental variables via a file - we have named this file env_file and it is similar to what we defined back in Chapter 3.
 Lastly, we attach the `db` service to the network `nw`. More on this later! Let us first move on to the jupyter service.
 ```
@@ -70,4 +70,4 @@ Those two commands setup both our services and establish the network `nw`. Note 
 
 Note that we can connect to the database using `user@db:5432`, this is because in our network `nw`, the database server can be found via its name `db`.
 
-This completes our tutorial, we hope you enjoyed it! If you are interested in containerization technologies, be sure to check out the [DevOps Engineering program](https://www.insightdevops.com) at Insight Data Science!
+This completes our tutorial, we hope you enjoyed it! If you are interested in containerization technologies and concepts such as Infrastructure as Code, be sure to check out the [DevOps Engineering program](https://www.insightdevops.com) at Insight Data Science!
