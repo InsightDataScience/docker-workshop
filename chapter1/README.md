@@ -18,7 +18,7 @@ Now that we have a Dockerfile, we can use it to to create a Docker image via
 
     docker build -t hello-world .
 
-This creates an image tagged hello-world. THe `.` specifies that the image we are building is based on the Dockerfile in the current directory. We can convince ourselves that the image was built successfull by use of the command:
+This creates an image tagged hello-world. The `.` specifies that the image we are building is based on the Dockerfile in the current directory. We can convince ourselves that the image was built successfull by use of the command:
 
     docker image ls
 
@@ -40,7 +40,7 @@ In order to remove a (stopped) container, we can use the `rm` command:
 
     docker rm hello-world
 
-Let us now use  `docker-run` again but add one option and one paramter:
+Let us now use  `docker-run` again but add one option and one parameter:
 
     docker run -d --name hello-world hello-world /bin/sh
 
