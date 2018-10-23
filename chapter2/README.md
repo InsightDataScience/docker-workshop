@@ -39,10 +39,36 @@ The run command will be trickier - let's dive right into it:
 
 We need the option `-p 8888:8888` to connect the container port 8888 with our machine port 8888. The option `-v notebooks:/jupyter_notebooks` mounts the volume `notebooks` to the folder `/jupyter_notebooks`. You ask what is a volume? In order to persists files created in containers, Docker can create volumes. Those volumes can then be attached to one or more containers. If a running container stops, the content of the volume is stored on your machine's hard drive and reloaded if you start the container again.
 
-Go ahead into the notebook-server (follow the instructions printed on the terminal) and make a notebook.
+Go ahead into the notebook-server (follow the instructions printed on the terminal) and make a notebook. Note that our terminal is actively showing the log of our container. This is useful for debugging but how do we stop the container from running? Let us use the web frontend of the jupyter server to stop the server and regain control over our terminal.
 Use
 
-    docker stop jupyter
     docker rm jupyter
 
-to stop and remove the container. If you now rebuild and restart the container, you will notice that the notebook you just created is still there. This is the end of Chapter 2! We will now continue with building a container hosting a database in Chapter 3.
+to remove the container. If you now rebuild and restart the container, you will notice that the notebook you just created is still there!
+
+In order to test this, use the command
+
+This is the end of Chapter 2! We will now continue with building a container hosting a database in Chapter 3.
+
+    docker run -d -p 8888:8888 -v notebooks:/jupyter_notebooks --name jupyter jupyter
+
+We are now running it in detached mode, so we do not lose control over the terminal. However, we also do not see the prompt that gives us the address and the auhtorization token of server. We can access it via
+
+    docker logs jupyter
+
+which accesses the logs of the jupyter container. We can now access the notebook server again and verify that our notebook still exists.
+
+We can now stop the container using
+
+    docker stop jupyter
+
+We can also verify that our volume `notebook` was created successfully via
+
+    docker volume ls
+
+We can remove it via
+
+    docker volume rm notebooks
+
+
+This is the end of Chapter 2! We will now continue with building a container hosting a database in Chapter 3.
