@@ -48,8 +48,6 @@ to remove the container. If you now rebuild and restart the container, you will 
 
 In order to test this, use the command
 
-This is the end of Chapter 2! We will now continue with building a container hosting a database in Chapter 3.
-
     docker run -d -p 8888:8888 -v notebooks:/jupyter_notebooks --name jupyter jupyter
 
 We are now running it in detached mode, so we do not lose control over the terminal. However, we also do not see the prompt that gives us the address and the auhtorization token of server. We can access it via
