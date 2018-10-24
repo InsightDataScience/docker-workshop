@@ -50,13 +50,13 @@ In order to test this, use the command
 
     docker run -d -p 8888:8888 -v notebooks:/jupyter_notebooks --name jupyter jupyter
 
-We are now running it in detached mode, so we do not lose control over the terminal. However, we also do not see the prompt that gives us the address and the auhtorization token of server. We can access it via
+We are now running it in detached mode, so we do not lose control over the terminal. However, we also do not see the prompt that gives us the address and the auhtorization token of the jupyter server. We can get it via
 
     docker logs jupyter
 
-which accesses the logs of the jupyter container. We can now access the notebook server again and verify that our notebook still exists.
+which accesses the logs of the jupyter container. We can now log into the notebook server again and verify that our notebook still exists.
 
-We can now stop the container using
+Let us stop the container using
 
     docker stop jupyter
 
@@ -64,7 +64,7 @@ We can also verify that our volume `notebook` was created successfully via
 
     docker volume ls
 
-We can remove it via
+and we can remove it via
 
     docker volume rm notebooks
 
