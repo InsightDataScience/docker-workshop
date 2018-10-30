@@ -23,3 +23,7 @@ The content of this workshop is divided into four chapters:
 - [Chapter 2](./chapter2/README.md): Learning more about Docker by building a container that hosts a Jupyter notebook service.
 - [Chapter 3](./chapter3/README.md): Learning how to use Docker to setup a database.
 - [Chapter 4](./chapter4/README.md): Learning how to use docker-compose to orchestrate the deployment of multiple containers. In particular, we will deploy the two containers from Chapter 2 and 3 and connect them so that our Jupyter notebooks can access the database.
+
+## Insight DevOps Engineering Fellowship
+
+Interested in getting hands-on experience with tools like Terraform, Chef, Kubernetes, Prometheus etc. on Amazon Web Services and transitioning to DevOps engineering? The [Insight DevOps Engineering Fellows Program](https://www.insightdevops.com) is a free 7-week professional training program where you can build and maintain cutting edge distributed platforms and transition to a career in DevOps engineering.

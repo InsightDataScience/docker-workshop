@@ -69,3 +69,5 @@ The command executes `ls` in the container `hello-world`. This shows us the file
 <img src="img/exec.png" width="150">
 
 That was a lot of information! An important command we did not touch is `docker logs`, we encourage you to try that command yourself before moving into the second chapter.
+
+Continue now to [Chapter 2](../chapter2/README.md)!

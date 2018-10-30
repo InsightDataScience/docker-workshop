@@ -81,4 +81,4 @@ and we can remove it via
     docker volume rm notebooks
 
 
-This is the end of Chapter 2! We will now continue with building a container hosting a database in Chapter 3.
+This is the end of Chapter 2! We will now continue with building a container hosting a database in [Chapter 3](../chapter3/README.md)!.
