@@ -5,7 +5,7 @@ Let us again check out the Dockerfile. There seems to be much more going on now!
 
     FROM python:3.7
 
-This on is easy: We start with a system that has Python 3.7 preinstalled. We now run `apt-get update` to make sure our system has updated package lists for everything we want to add to it.
+This one is easy: We start with a system that has Python 3.7 preinstalled. We now run `apt-get update` to make sure our system has updated package lists for everything we want to add to it.
 
     RUN apt-get update
 
@@ -19,13 +19,15 @@ This is the folder where we want to save our notebooks in.
 
     WORKDIR /jupyter_notebooks
 
-The following command now installs all modules from `requirements.txt`. 
+The following command now installs all modules from `requirements.txt`.
 
     RUN pip install -r ../requirements.txt
 
+Note that we have to go to the parent folder first before we find `requirements.txt`. It would have been cleaner to run `pip install` before changing the working directory. We wrote this version for educational purposes.
+
 Lastly, we want to actually start the jupyter-notebook server when we spin up a container.
 
-    CMD jupyter-notebook --no-browser --ip="*" --allow-root --NotebookApp.allow_remote_access=True 
+    CMD jupyter-notebook --no-browser --ip="*" --allow-root --NotebookApp.allow_remote_access=True
 
 ## Running and storing
 
@@ -37,9 +39,17 @@ The run command will be trickier - let's dive right into it:
 
     docker run -p 8888:8888 -v notebooks:/jupyter_notebooks --name jupyter jupyter
 
-We need the option `-p 8888:8888` to connect the container port 8888 with our machine port 8888. The option `-v notebooks:/jupyter_notebooks` mounts the volume `notebooks` to the folder `/jupyter_notebooks`. You ask what is a volume? In order to persists files created in containers, Docker can create volumes. Those volumes can then be attached to one or more containers. If a running container stops, the content of the volume is stored on your machine's hard drive and reloaded if you start the container again.
+We need the option `-p 8888:8888` to connect the container port 8888 with our machine port 8888. The option `-v notebooks:/jupyter_notebooks` mounts the volume `notebooks` to the folder `/jupyter_notebooks`. You ask what is a volume? In order to persists files created in containers, Docker can create volumes. Those volumes can then be attached to one or more containers. If a running container stops, the content of the volume is stored on your machine's hard drive and reloaded if you start the container again. You can think of a volume as a network hard drive that you can attach to many different networks.
 
-Go ahead into the notebook-server (follow the instructions printed on the terminal) and make a notebook. Note that our terminal is actively showing the log of our container. This is useful for debugging but how do we stop the container from running? Let us use the web frontend of the jupyter server to stop the server and regain control over our terminal.
+Go ahead into the notebook-server (follow the instructions printed on the terminal) and make a notebook. Note that our terminal is actively showing the log of our container. This is useful for debugging but how do we stop the container from running? Let us use the web frontend of the jupyter server to stop the server and regain control over our terminal by clicking the quit button.
+
+![server](./img/notebook-server.png)
+
+Alternatively, we could have used
+
+    docker stop jupyter
+
+to stop the jupyter server.
 Use
 
     docker rm jupyter
@@ -50,11 +60,13 @@ In order to test this, use the command
 
     docker run -d -p 8888:8888 -v notebooks:/jupyter_notebooks --name jupyter jupyter
 
-We are now running it in detached mode, so we do not lose control over the terminal. However, we also do not see the prompt that gives us the address and the auhtorization token of the jupyter server. We can get it via
+We are now running it in detached mode, so we do not lose control over the terminal. However, we also do not see the prompt that gives us the address and the authorization token of the jupyter server. We can get it via
 
     docker logs jupyter
 
 which accesses the logs of the jupyter container. We can now log into the notebook server again and verify that our notebook still exists.
+
+![notebook](./img/notebook.png)
 
 Let us stop the container using
 
