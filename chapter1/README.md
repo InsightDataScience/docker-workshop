@@ -18,20 +18,28 @@ Now that we have a Dockerfile, we can use it to to create a Docker image via
 
     docker build -t hello-world .
 
-This creates an image tagged hello-world. The `.` specifies that the image we are building is based on the Dockerfile in the current directory. We can convince ourselves that the image was built successfull by use of the command:
+This creates an image tagged hello-world. The `.` specifies that the image we are building is based on the Dockerfile in the current directory. We can convince ourselves that the image was built successful by use of the command:
 
     docker image ls
+
+This should yield a screenshot like this:
+![imagels](./img/image.png)
 
 which displays all current images. Now that we have an image, we can start a container based on it. The command `docker run` starts a new container:
 
     docker run --name hello-world hello-world
 
-The `--name` option allows us to name the container `hello-world`. The second `hello-world` directs docker to use the image tagged `hello-world` to spin up the container. Our terminal should print `hello world!` as we start the container.
+The `--name` option allows us to name the container `hello-world`. The second `hello-world` directs docker to use the image tagged `hello-world` to spin up the container. Our terminal should print `hello world!` as we start the container:
+
+![run](./img/run.png)
+
 Let us now see the list of running, active containers via
 
     docker ps
 
-It is empty! This is because our container did not have anything to do after printing `hello world!`. We can get more information if we add the `-a` option:
+It is empty!
+
+This is because our container did not have anything to do after printing `hello world!`. We can get more information if we add the `-a` option:
 
     docker ps -a
 
@@ -48,10 +56,16 @@ The option `-d` activates detached mode, a mode where the container runs in the 
 
     docker ps
 
-We now see a running container! If we want to executed a command in a running container we can use `docker exec`:
+We now see a running container!
+
+![ps](./img/ps.png)
+
+If we want to executed a command in a running container we can use `docker exec`:
 
     docker exec hello-world ls
 
 The command executes `ls` in the container `hello-world`. This shows us the file system of our container.
+
+![ps](./img/exec.png)
 
 That was a lot of information! An important command we did not touch is `docker logs`, we encourage you to try that command yourself before moving into the second chapter.
