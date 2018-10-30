@@ -66,6 +66,6 @@ If we want to executed a command in a running container we can use `docker exec`
 
 The command executes `ls` in the container `hello-world`. This shows us the file system of our container.
 
-![ps](./img/exec.png)
+<img src="img/exec.png" width="150">
 
 That was a lot of information! An important command we did not touch is `docker logs`, we encourage you to try that command yourself before moving into the second chapter.
