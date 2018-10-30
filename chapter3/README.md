@@ -30,7 +30,11 @@ This is of course where `docker exec` comes in handy again! Using the command
 
     docker exec -it db psql -U me study
 
-we are logged in our database. The option `-it` essentially executes the command in an interactive mode where our terminal is bound to the container. We should now be logged into the database!
+we are logged into our database.
+The option `-it` essentially executes the command in an interactive mode where our terminal is bound to the container. We should now be logged into the database!
+
+![psql](./img/psql.png)
+
 Execute the following SQL command to  create a table participants:
 
     CREATE TABLE participants (name VARCHAR(255), age INT, score INT);
@@ -39,7 +43,10 @@ Of course, the table is currently empty, as we can verify with:
 
      SELECT * FROM participants;
 
-So, let us insert two entries via 
+
+![empty](./img/select-empty.png)
+
+So, let us insert two entries via
 
     INSERT INTO participants (name, age, score) VALUES ('Lucy', 33, 8), ('Jack', 44, 12);
 
@@ -49,6 +56,8 @@ and check again:
 
 We should now see both entries!
 
+![content](./img/select_content.png)
+
 We end our database session using
 
     \q
@@ -57,7 +66,7 @@ To make sure our setup is actually persistent, let us stop our container
 
     docker stop db
 
-and then restart it using 
+and then restart it using
 
     docker start db
 
@@ -65,7 +74,7 @@ If we reenter the database and display the content of the table participants
 
     docker exec -it db psql -U me study
     SELECT * FROM participants;
- 
+
  we should still see both entries!
 
 This is the end of Chapter 3, we have successfully setup a database using Docker! To finish this workshop strongly, let us combine what we have learned in Chapter 2 and Chapter 3!
